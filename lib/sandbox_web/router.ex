@@ -26,6 +26,11 @@ defmodule SandboxWeb.Router do
     end
   end
 
+  scope "/exports", as: :exports, alias: Sandbox.Exports do
+    pipe_through :browser
+    resources "/posts", PostController, only: [:index]
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", SandboxWeb do
   #   pipe_through :api
