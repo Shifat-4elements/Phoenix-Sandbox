@@ -1,0 +1,13 @@
+<h1>Show Log post comment</h1>
+
+<ul>
+
+  <li>
+    <strong>Numofcomments:</strong>
+    <%= @log_post_comment.numOfComments %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.log_post_comment_path(@conn, :edit, @log_post_comment) %></span>
+<span><%= link "Back", to: Routes.log_post_comment_path(@conn, :index) %></span>

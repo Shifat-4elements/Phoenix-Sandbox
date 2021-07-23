@@ -24,6 +24,8 @@ defmodule SandboxWeb.Router do
     resources "/posts", PostController do
       post "/comment", PostController, :add_comment
     end
+
+    resources "/log_post_comment", LogPostCommentController
   end
 
   scope "/exports", as: :exports, alias: Sandbox.Exports do

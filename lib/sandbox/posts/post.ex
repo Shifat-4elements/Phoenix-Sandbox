@@ -8,6 +8,7 @@ defmodule Sandbox.Posts.Post do
     field :body, :string
     field :title, :string
     has_many :comments, Comment
+    has_one :log_post_comment, Sandbox.Logs.LogPostComment
 
     timestamps()
   end

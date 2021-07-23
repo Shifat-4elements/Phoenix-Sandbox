@@ -9,6 +9,7 @@ defmodule Sandbox.Posts do
   alias Sandbox.Posts
   alias Sandbox.Posts.Post
   alias Sandbox.Comments
+  alias Sandbox.Logs.LogPostComment
 
   @doc """
   Returns the list of posts.
@@ -20,7 +21,9 @@ defmodule Sandbox.Posts do
 
   """
   def list_posts do
-    Repo.all(Post)
+    Post
+    |> Repo.all()
+    |> Repo.preload(:log_post_comment)
   end
 
   @doc """
@@ -50,7 +53,11 @@ defmodule Sandbox.Posts do
       ** (Ecto.NoResultsError)
 
   """
-  def get_post!(id), do: Repo.get!(Post, id)
+  def get_post!(id) do
+    Post
+    |> Repo.get!(id)
+    |> Repo.preload(:log_post_comment)
+  end
 
   @doc """
   Creates a post.
@@ -67,6 +74,7 @@ defmodule Sandbox.Posts do
   def create_post(attrs \\ %{}) do
     %Post{}
     |> Post.changeset(attrs)
+    |> Ecto.Changeset.cast_assoc(:log_post_comment, with: &LogPostComment.changeset/2)
     |> Repo.insert()
   end
 
@@ -99,6 +107,7 @@ defmodule Sandbox.Posts do
   def update_post(%Post{} = post, attrs) do
     post
     |> Post.changeset(attrs)
+    |> Ecto.Changeset.cast_assoc(:log_post_comment, with: &LogPostComment.changeset/2)
     |> Repo.update()
   end
 

@@ -13,6 +13,14 @@
   <%= textarea f, :body %>
   <%= error_tag f, :body %>
 
+ <div class="form-group">
+    <%= inputs_for f, :log_post_comment, fn cf -> %>
+      <%= label f, :numOfComments %>
+      <%= number_input f, :numOfComments %>
+      <%= error_tag f, :numOfComments %>
+    <% end %>
+  </div>
+
   <div>
     <%= submit "Save" %>
   </div>

@@ -1,0 +1,5 @@
+<h1>Edit Log post comment</h1>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.log_post_comment_path(@conn, :update, @log_post_comment)) %>
+
+<span><%= link "Back", to: Routes.log_post_comment_path(@conn, :index) %></span>

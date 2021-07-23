@@ -12,6 +12,10 @@
     <%= @post.body %>
   </li>
 
+  <li>
+    <strong>Number of comments:</strong>
+    <%= @post.log_post_comment.numOfComments %>
+  </li>
 </ul>
 
 <%= render "comments.html", comments: @post.comments %>
