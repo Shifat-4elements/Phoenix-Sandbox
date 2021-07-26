@@ -14,7 +14,11 @@
 
   <li>
     <strong>Number of comments:</strong>
-    <%= @post.log_post_comment.numOfComments %>
+    <%= if (@post.log_post_comment && @post.log_post_comment.numOfComments) do %>
+      <%= @post.log_post_comment.numOfComments %>
+    <% else %>
+      0
+    <% end %>
   </li>
 </ul>
 

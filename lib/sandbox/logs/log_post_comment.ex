@@ -14,7 +14,7 @@ defmodule Sandbox.Logs.LogPostComment do
   @doc false
   def changeset(log_post_comment, attrs) do
     log_post_comment
-    |> cast(attrs, [:numOfComments])
-    |> validate_required([:numOfComments])
+    |> cast(attrs, [:numOfComments, :post_id])
+    |> validate_required([:numOfComments, :post_id])
   end
 end

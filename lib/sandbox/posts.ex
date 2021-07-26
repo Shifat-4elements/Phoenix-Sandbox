@@ -9,7 +9,10 @@ defmodule Sandbox.Posts do
   alias Sandbox.Posts
   alias Sandbox.Posts.Post
   alias Sandbox.Comments
+  alias Sandbox.Logs
   alias Sandbox.Logs.LogPostComment
+
+  require Logger
 
   @doc """
   Returns the list of posts.
@@ -87,6 +90,20 @@ defmodule Sandbox.Posts do
 
   """
   def add_comment(post_id, comment_params) do
+    # Check if a log exists for this post. If not, create one.
+    try do
+      Repo.get_by!(LogPostComment, post_id: post_id)
+    rescue
+      Ecto.NoResultsError -> Logs.create_log_post_comment(%{numOfComments: 0, post_id: post_id})
+    end
+
+    # Update counter
+    from(log in Sandbox.Logs.LogPostComment,
+      update: [inc: [numOfComments: 1]],
+      where: log.post_id == ^post_id
+    )
+    |> Repo.update_all([])
+
     comment_params
     |> Map.put("post_id", post_id)
     |> Comments.create_comment()
