@@ -6,7 +6,8 @@ alias Elixlsx.{Workbook, Sheet}
 @header [
     "ID",
     "Title",
-    "Body"
+    "Body",
+    "Number of comments"
   ]
 def render("report.xlsx", %{posts: posts}) do
     report_generator(posts)
@@ -22,7 +23,8 @@ def row(post) do
     [
       post.id,
       post.title,
-      post.body
+      post.body,
+      post.log_post_comment.numOfComments
     ]
   end
 end
