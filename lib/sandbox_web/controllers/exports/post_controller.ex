@@ -2,6 +2,7 @@ defmodule Sandbox.Exports.PostController do
   use SandboxWeb, :controller
 
   alias Sandbox.Posts
+  alias Sandbox.Repo
 
   def index(conn, _params) do
     posts = Posts.list_posts()

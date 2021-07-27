@@ -8,6 +8,7 @@ defmodule SandboxWeb.PostController do
 
   def index(conn, _params) do
     posts = Posts.list_posts()
+    #|> Repo.preload(:log_post_comment)
     render(conn, "index.html", posts: posts)
   end
 
