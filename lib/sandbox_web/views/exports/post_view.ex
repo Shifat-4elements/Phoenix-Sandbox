@@ -23,11 +23,16 @@ def report_generator(posts) do
 end
 
 def row(post) do
+  numOfComments = 0
+  if not is_nil(post.log_post_comment) do
+    numOfComments = post.log_post_comment.numOfComments
+  end
+
     [
       post.id,
       post.title,
       post.body,
-      post.log_post_comment.numOfComments
+      numOfComments
     ]
   end
 end

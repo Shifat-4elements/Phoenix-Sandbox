@@ -59,11 +59,11 @@ defmodule Sandbox.Posts do
   """
   def get_post!(id) do
     # Check if a log exists for this post. If not, create one.
-    try do
-      Repo.get_by!(LogPostComment, post_id: id)
-    rescue
-      Ecto.NoResultsError -> Logs.create_log_post_comment(%{numOfComments: 0, post_id: id})
-    end
+    # try do
+    #   Repo.get_by!(LogPostComment, post_id: id)
+    # rescue
+    #   Ecto.NoResultsError -> Logs.create_log_post_comment(%{numOfComments: 0, post_id: id})
+    # end
 
     Post
     |> Repo.get!(id)
