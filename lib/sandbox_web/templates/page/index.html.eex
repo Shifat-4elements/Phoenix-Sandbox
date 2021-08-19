@@ -1,38 +1,13 @@
-<section class="phx-hero">
-  <h1><%= gettext "Welcome to %{name}!", name: "Phoenix" %></h1>
-  <p>Peace of mind from prototype to production</p>
-</section>
-
-<section class="row">
-  <article class="column">
-    <h2>Resources</h2>
-    <ul>
-      <li>
-        <a href="https://hexdocs.pm/phoenix/overview.html">Guides &amp; Docs</a>
-      </li>
-      <li>
-        <a href="https://github.com/phoenixframework/phoenix">Source</a>
-      </li>
-      <li>
-        <a href="https://github.com/phoenixframework/phoenix/blob/v1.5/CHANGELOG.md">v1.5 Changelog</a>
-      </li>
-    </ul>
-  </article>
-  <article class="column">
-    <h2>Help</h2>
-    <ul>
-      <li>
-        <a href="https://elixirforum.com/c/phoenix-forum">Forum</a>
-      </li>
-      <li>
-        <a href="https://webchat.freenode.net/?channels=elixir-lang">#elixir-lang on Freenode IRC</a>
-      </li>
-      <li>
-        <a href="https://twitter.com/elixirphoenix">Twitter @elixirphoenix</a>
-      </li>
-      <li>
-        <a href="https://elixir-slackin.herokuapp.com/">Elixir on Slack</a>
-      </li>
-    </ul>
-  </article>
-</section>
+{"preferedServers": [
+    {"id": 1, "server_url":"192.168.0.129","server_port":":4001","server_identifier":"Dev-4e","requires_http":"true"},
+    {"id": 2, "server_url":"http://10.0.0.67","server_port":":4001","server_identifier":"Dev-Shifat","requires_http":"true"},
+    {"id": 3, "server_url":"192.168.0.202","server_port":":4001","server_identifier":"202-Local","requires_http":"true"},
+    {"id": 4, "server_url":"192.168.0.129","server_port":":4001","server_identifier":"Shifat-Local","requires_http":"true"}
+  ],
+  "backupServers": [
+    {"id": 1, "server_url":"http://10.0.0.67","server_port":":4001","server_identifier":"Dev-Shifat-bak","requires_http":"true"},
+    {"id": 2, "server_url":"192.168.0.129","server_port":":4001","server_identifier":"Dev-4e-bak","requires_http":"true"},
+    {"id": 3, "server_url":"4elements-media.dyndns.org","server_port":":40203","server_identifier":"203-Remote","requires_http":"true"},
+    {"id": 4, "server_url":"4elements-media.dyndns.org","server_port":":40203","server_identifier":"203-Remote","requires_http":"true"}
+  ]
+}
